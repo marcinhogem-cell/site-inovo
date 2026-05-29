@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inovo Assistência Técnica | Especialistas Apple</title>
+  <meta name="description" content="Assistência técnica especializada em iPhone, iPad e Apple Watch. Diagnóstico rápido e transparente." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://images.pexels.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0014;
+      --card:#140022;
+      --line:#ff5d8f;
+      --text:#f8f4ff;
+      --muted:#ff9ab8;
+      --primary:#7b2cff;
+      --primary-2:#ff5d8f;
+      --accent:#39ff14;
+      --success:#39ff14;
+      --radius:16px;
+      --shadow:0 10px 24px rgba(17,24,39,.08);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text)}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max),92%);margin-inline:auto}
+    header{
+      position:sticky;top:0;z-index:40;background:rgba(10,0,20,.92);
+      backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo img{
+      height:170px;
+      width:auto;
+      display:block;
+    }
+    .nav-links{display:flex;gap:18px;color:var(--muted);font-weight:600}
+    .hero{
+      padding:72px 0;
+      background:linear-gradient(180deg,#1a0030 0%,#0a0014 100%);
+    }
+    .whatsapp-float{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      z-index:60;
+      display:inline-flex;
+      align-items:center;
+      min-height:52px;
+      padding:0 18px;
+      border-radius:999px;
+      background:#25d366;
+      color:#07140b;
+      font-weight:800;
+      box-shadow:0 12px 28px rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.22);
+    }
+    .whatsapp-float:hover{transform:translateY(-1px)}
+    h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.15;margin:14px 0}
+    p{color:var(--muted);line-height:1.7}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;
+      border:1px solid transparent;font-weight:700;cursor:pointer;transition:.2s ease;
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;box-shadow:var(--shadow)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{border-color:var(--line);background:#140022;color:var(--text)}
+    .grid{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px
+    }
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      padding:20px;box-shadow:var(--shadow)
+    }
+    .card h3{margin:0 0 8px;font-size:1.05rem}
+    .service-image{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:12px;
+      border:1px solid var(--line);
+      margin-bottom:14px;
+      display:block;
+      background:transparent;
+      padding:0;
+    }
+    .location,.pricing,.reviews{padding:10px 0 48px}
+    .section-title{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 10px}
+    .section-subtitle{margin:0 0 18px}
+    .table-wrap{
+      border:1px solid rgba(248,244,255,.14);
+      border-radius:12px;
+      overflow:auto;
+      background:#10051b;
+      box-shadow:var(--shadow);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:640px;
+    }
+    th,td{
+      padding:14px 16px;
+      text-align:left;
+      border-bottom:1px solid rgba(248,244,255,.1);
+    }
+    th{
+      color:#f8f4ff;
+      background:#180826;
+      font-size:.92rem;
+      letter-spacing:.02em;
+    }
+    tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
+    tbody tr:hover{background:rgba(255,255,255,.05)}
+    td{color:var(--text)}
+    .price{font-weight:800;color:#f8f4ff;white-space:nowrap}
+    .price-note{font-size:.9rem;margin-top:10px}
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:14px;
+    }
+    .reviews-grid.more{
+      margin-top:16px;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+    .review-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .review-top{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      margin-bottom:8px;
+    }
+    .review-name{font-weight:700}
+    .stars{color:#ffd166;font-weight:800}
+    .rating-highlight{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#1a0030;
+      color:#fff;
+      font-weight:700;
+    }
+    .btn:focus-visible,
+    .nav-links a:focus-visible{
+      outline:2px solid #fff;
+      outline-offset:2px;
+      border-radius:10px;
+    }
+    .map-wrap{
+      margin-top:16px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:var(--card);
+    }
+    .map-wrap iframe{width:100%;height:360px;border:0;display:block}
+    .location-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    footer{padding:28px 0 42px;color:var(--muted)}
+    @media (max-width:900px){
+      .grid,.reviews-grid,.reviews-grid.more{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .logo img{height:120px}
+      .map-wrap iframe{height:300px}
+      th,td{padding:12px}
+      .whatsapp-float{
+        right:14px;
+        bottom:14px;
+        min-height:48px;
+        padding:0 14px;
+        font-size:.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="./LOGO-INOV-fundo-ransparente.png" alt="Logo Inovo Assistência Técnica" />
+      </div>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#precos">Preços</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="https://www.instagram.com/inovoiphone/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Seu aparelho novo de novo</h1>
+        <p>Assistência técnica especializada com diagnóstico ágil, reparo confiável e suporte profissional para devolver o desempenho do seu equipamento.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://wa.me/5521975956903?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
+          <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+        </div>
+
+        <div class="grid" id="servicos">
+          <article class="card">
+            <img class="service-image" src="https://images.pexels.com/photos/6755132/pexels-photo-6755132.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Aparelho Apple aberto com componentes internos visíveis para reparo de placas" loading="lazy" />
+            <h3>Reparo avançado de placas</h3>
+            <p>Diagnóstico e reparo técnico em placas com análise precisa e solução segura.</p>
+          </article>
+          <article class="card">
+            <img class="service-image" src="./inovo troca de tela.jpeg" alt="iPhone com tela quebrada para serviço de troca de telas" loading="lazy" />
+            <h3>Troca de telas</h3>
+            <p>Substituição de telas com instalação cuidadosa e acabamento profissional.</p>
+          </article>
+          <article class="card">
+            <img class="service-image" src="./740043.webp" alt="iPhone aberto com bateria em destaque para troca de bateria" loading="lazy" />
+            <h3>Troca de baterias</h3>
+            <p>Troca de baterias com componentes de qualidade e testes de funcionamento.</p>
+          </article>
+          <article class="card">
+            <img class="service-image" src="./qri4t9t5kdfc1.jpeg" alt="iPhone em modo de recuperação DFU para serviço de software" loading="lazy" />
+            <h3>Software</h3>
+            <p>Formatação, instalação, atualização e otimização de sistemas.</p>
+          </article>
+          <article class="card">
+            <img class="service-image" src="./images (3).jfif" alt="Apple Watch com vidro quebrado para serviço de troca de vidro" loading="lazy" />
+            <h3>Troca de vidro Apple Watch</h3>
+            <p>Substituição do vidro de Apple Watch com cuidado técnico e ótimo acabamento.</p>
+          </article>
+          <article class="card">
+            <img class="service-image" src="./ipad2.webp" alt="iPad com tela danificada para serviço de troca de telas" loading="lazy" />
+            <h3>Troca de telas iPad</h3>
+            <p>Troca de telas de iPad com peças de qualidade, instalação precisa e acabamento profissional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="pricing" id="precos">
+      <div class="container">
+        <h2 class="section-title">Tabela de preços</h2>
+        <p class="section-subtitle">Valores estimados para serviços frequentes. O orçamento final depende do diagnóstico técnico e do modelo do aparelho.</p>
+        <div class="table-wrap" role="region" aria-label="Tabela de preços dos serviços">
+          <table>
+            <thead>
+              <tr>
+                <th>Serviço</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Troca de tela iPhone</td>
+                <td>Substituição completa de display com testes funcionais</td>
+                <td class="price">a partir de R$ 249,90</td>
+              </tr>
+              <tr>
+                <td>Troca de bateria iPhone</td>
+                <td>Remoção e instalação com calibração e validação</td>
+                <td class="price">a partir de R$ 189,90</td>
+              </tr>
+              <tr>
+                <td>Troca de vidro Apple Watch</td>
+                <td>Troca de vidro com acabamento técnico especializado</td>
+                <td class="price">a partir de R$ 299,90</td>
+              </tr>
+              <tr>
+                <td>Troca de tela iPad</td>
+                <td>Reparo de tela/vidro com inspeção final de qualidade</td>
+                <td class="price">a partir de R$ 349,90</td>
+              </tr>
+              <tr>
+                <td>Reparo avançado de placa</td>
+                <td>Diagnóstico em bancada e micro-solda quando necessário</td>
+                <td class="price">a partir de R$ 390,00</td>
+              </tr>
+              <tr>
+                <td>Software e recuperação</td>
+                <td>Atualização, restauração, backup e otimizações</td>
+                <td class="price">a partir de R$ 149,90</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">* Valores sujeitos a alteração sem aviso prévio, conforme peça, modelo e disponibilidade.</p>
+      </div>
+    </section>
+
+    <section class="reviews" id="avaliacoes">
+      <div class="container">
+        <h2 class="section-title">Avaliações de clientes</h2>
+        <div class="rating-highlight" aria-label="Nota média de avaliações">5,0/5 ★★★★★ no Google Meu Negócio</div>
+        <p class="section-subtitle">Depoimentos de clientes sobre atendimento, qualidade técnica e prazo de entrega.</p>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Mariana S.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Atendimento excelente, explicaram tudo com transparência e meu iPhone ficou perfeito após a troca de tela.</p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Carlos P.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Serviço rápido e profissional. Fiz troca de bateria e o aparelho voltou a durar o dia inteiro.</p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Juliana R.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Levei meu Apple Watch para reparo do vidro e o resultado ficou ótimo. Equipe muito atenciosa.</p>
+          </article>
+        </div>
+
+        <div class="reviews-grid more" aria-label="Mais avaliações de clientes">
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Rodrigo M.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Meu iPad estava sem imagem e resolveram no mesmo dia. Atendimento muito honesto e prazo cumprido.</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Fernanda L.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Fizeram diagnóstico completo e me explicaram todas as opções. Serviço limpo e com garantia.</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Paulo H.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Troca de vidro do Apple Watch impecável. Voltou como novo e com ótimo acabamento.</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top">
+              <span class="review-name">Ana C.</span>
+              <span class="stars" aria-label="5 estrelas">★★★★★</span>
+            </div>
+            <p>Preço justo, atendimento rápido no WhatsApp e total transparência no orçamento. Recomendo muito.</p>
+          </article>
+        </div>
+
+        <div class="location-actions" style="margin-top:16px;">
+          <a class="btn btn-primary" href="https://g.page/r/CS5fqN80SleUEAE/review" target="_blank" rel="noopener noreferrer">Ver e deixar avaliações no Google</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/inovoiphone/" target="_blank" rel="noopener noreferrer">Seguir no Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" id="mapa">
+      <div class="container">
+        <h2 class="section-title">Como chegar</h2>
+        <p>Marquês de Abrantes, 168, loja 14, Flamengo, Rio de Janeiro.</p>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=Marqu%C3%AAs%20de%20Abrantes%2C%20168%2C%20loja%2014%2C%20Flamengo%2C%20Rio%20de%20Janeiro&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+            title="Mapa da loja Inovo Assistência Técnica">
+          </iframe>
+        </div>
+        <div class="location-actions">
+          <a class="btn btn-ghost" href="https://maps.google.com/?q=Marqu%C3%AAs%20de%20Abrantes%2C%20168%2C%20loja%2014%2C%20Flamengo%2C%20Rio%20de%20Janeiro" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+          <a class="btn btn-primary" href="https://g.page/r/CS5fqN80SleUEAE" target="_blank" rel="noopener noreferrer">Deixar avaliação</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/5521975956903?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20atendimento." target="_blank" rel="noopener noreferrer" aria-label="Atendimento rápido e transparente pelo WhatsApp">
+    <span>Agendar agora</span>
+  </a>
+
+  <footer id="contato">
+    <div class="container">
+      © 2026 Inovo Assistência Técnica — 
+      <a href="https://wa.me/5521975956903?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20atendimento." target="_blank" rel="noopener noreferrer">WhatsApp: 21 97595-6903</a>
+      — <a href="https://www.instagram.com/inovoiphone/" target="_blank" rel="noopener noreferrer">Instagram: @inovoiphone</a>
+      — CNPJ: 59.214.410/0001-88
+      — Endereço: Marquês de Abrantes, 168, loja 14, Flamengo, Rio de Janeiro
+    </div>
+  </footer>
+</body>
+</html>
