@@ -215,9 +215,44 @@
       background:transparent;
       padding:0;
     }
-    .location,.pricing,.reviews{padding:18px 0 54px}
+    .trust,.location,.pricing,.reviews{padding:18px 0 54px}
     .section-title{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 10px}
     .section-subtitle{margin:0 0 18px}
+    .section-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .trust-card{
+      position:relative;
+      display:grid;
+      gap:8px;
+      min-height:132px;
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      backdrop-filter:blur(12px);
+    }
+    .trust-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--line-strong),transparent);
+    }
+    .trust-card strong{
+      color:var(--text);
+      font-size:1.05rem;
+    }
+    .trust-card span{
+      color:var(--muted);
+      line-height:1.55;
+    }
     .table-wrap{
       border:1px solid rgba(248,244,255,.14);
       border-radius:12px;
@@ -305,9 +340,21 @@
     }
     .map-wrap iframe{width:100%;height:360px;border:0;display:block}
     .location-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    footer{padding:28px 0 42px;color:var(--muted)}
+    footer{padding:28px 0 42px;color:var(--muted);border-top:1px solid var(--line);background:rgba(7,10,16,.58)}
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1.4fr;
+      gap:20px;
+    }
+    .footer-grid div{
+      display:grid;
+      gap:6px;
+      align-content:start;
+    }
+    .footer-grid strong{color:var(--text)}
+    .footer-grid a:hover{color:var(--primary)}
     @media (max-width:900px){
-      .hero-inner,.grid,.reviews-grid,.reviews-grid.more{grid-template-columns:1fr}
+      .hero-inner,.grid,.trust-grid,.reviews-grid,.reviews-grid.more,.footer-grid{grid-template-columns:1fr}
       .nav-links{display:none}
       .logo img{height:72px}
       .hero{padding:36px 0 40px}
